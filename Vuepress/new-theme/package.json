@@ -1,0 +1,25 @@
+{
+  "name": "VuepressNewTheme",
+  "version": "1.0.0",
+  "description": "A new theme",
+  "keywords": [],
+  "author": "hai.ho",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^0.7.3",
+    "autoprefixer": "^9.4.2",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "bootstrap": "^4.2.1",
+    "element-ui": "^2.4.11",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-parallax-js": "^0.2.3",
+    "vue-parallaxy": "^1.1.1",
+    "vuepress": "^1.0.0-alpha.30"
+  },
+  "dependencies": {
+    "@vuepress/plugin-blog": "^1.0.0-alpha.0",
+    "@vuepress/plugin-pagination": "^1.0.0-alpha.0"
+  }
+}
