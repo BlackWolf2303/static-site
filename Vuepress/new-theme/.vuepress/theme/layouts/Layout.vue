@@ -1,9 +1,12 @@
 <template>
   <div>
-    <h2>Main layout</h2>
     <Header />
-    <Slider />
-    <Content />
+    <HeaderBanner
+      :title="$page.frontmatter.title"
+      :src="$page.frontmatter.banner"
+      :alt="$page.frontmatter.banner_title"
+    />
+    <Content id="main-content"/>
     <Footer />
 
   </div>
@@ -11,15 +14,14 @@
 
 <script>
 import Header from '../components/Header.vue';
-import Slider from '../components/Slider.vue';
+import HeaderBanner from '../components/HeaderBanner.vue';
 import Footer from '../components/Footer.vue';
 export default {
-  components:{ Footer,Header,Slider },
+  components:{ Footer,Header,HeaderBanner },
 }
 </script>
 
 <style lang="scss">
-
 * {
   margin: 0;
   padding: 0;
@@ -39,10 +41,14 @@ html {
   font-size: 62.5%;
 }
 body {
-      font-size: 1.4rem;
+    font-size: 1.4rem;
     font-weight: 400;
     letter-spacing: .05em;
     line-height: 1.5;
+    color: #222;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image: url('/images/pattern.jpg');
 }
-
 </style>
