@@ -1,42 +1,40 @@
 <template>
   <div class="head-banner" v-if="src" style="position:relative">
     <div class="head-banner-text">
-          <div class="caption-inner">
-							<h3><a href="#">New Sol, New Hope</a></h3>
-							<p class="text-links small serif">
-								<a href="#">Design</a>
-								<a href="#">Art</a>
-							</p>
-						</div>
+      <div class="caption-inner">
+        <h3>
+          <a href="#">New Sol, New Hope</a>
+        </h3>
+        <p class="text-links small serif">
+          <a href="#">Design</a>
+          <a href="#">Art</a>
+        </p>
+      </div>
     </div>
-    <img
-      v-parallax="0.5"
-      :src="src"
-      :alt="alt"
-    />
+    <img v-parallax="0.5" :src="src" :alt="alt">
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueParallaxJs from 'vue-parallax-js'
+import Vue from "vue";
+import VueParallaxJs from "vue-parallax-js";
 
 Vue.use(VueParallaxJs);
 
 export default {
-  name: 'HeaderBanner',
-  props: [ 'title', 'src', 'alt' ],
+  name: "HeaderBanner",
+  props: ["title", "src", "alt"],
   mounted: function() {
     setTimeout(function() {
       window.scrollTo(0, 5);
       window.scrollTo(0, 0);
     }, 100);
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '~@theme/styles/bootstrap/bootstrap';
+@import "~@theme/styles/bootstrap/bootstrap";
 .head-banner {
   height: 70vh;
   overflow: hidden;
@@ -64,22 +62,22 @@ export default {
   top: 70%;
   left: 40%;
   a {
-  color: white;
-  font-weight: 500;
+    color: white;
+    font-weight: 500;
   }
   p {
     text-align: center;
   }
-  }
+}
 h3 {
   font-size: 3.7897rem;
 }
-.small{
-    font-size: 1.19rem;
-    color: #909090;
-    font-weight: 400;
+.small {
+  font-size: 1.19rem;
+  color: #909090;
+  font-weight: 400;
 }
 .serif {
-    font-family: 'Playfair Display',serif;
+  font-family: "Playfair Display", serif;
 }
 </style>

@@ -5,6 +5,7 @@
   "keywords": [],
   "author": "hai.ho",
   "license": "MIT",
+  "main": "index.js",
   "devDependencies": {
     "tailwindcss": "^0.7.3",
     "autoprefixer": "^9.4.2",
