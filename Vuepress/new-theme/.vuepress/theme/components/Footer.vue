@@ -5,9 +5,9 @@
 
     <!-- Social/Contact Links -->
     <div class="small text-links">
-      <a href="#">Facebook</a>
-      <a href="#">Behance</a>
-      <a href="#">Instagram</a>
+      <a href="#">Facebook /</a>
+      <a href="#">Behance /</a>
+      <a href="#">Instagram </a>
     </div>
   </footer>
 </template>
@@ -33,7 +33,7 @@ small {
 }
 
 #footer .text-links {
-  color: #fff;
+  color: #909090;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

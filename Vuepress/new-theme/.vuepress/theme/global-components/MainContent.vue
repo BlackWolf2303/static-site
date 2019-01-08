@@ -1,25 +1,30 @@
 <template>
   <div class=" py-lg-13 py-8">
     <HelloThere />
-    <ParallaxImage1 title="Infinite black skies" height="450px" width="800px" src="/images/1.jpg"/>
-    <ParallaxImage1 title="we will stand tall" height="640px" width="570px" src="/images/2.jpg"/>
-    <ParallaxImage1 title="feel the earth move"  height="640px" width="570px"src="/images/3.jpg"/>
-    <ParallaxImage1 title="where worlds collide" height="450px" width="800px" src="/images/4.jpg"/>
+    <ParallaxImage title="Infinite black skies"  src="/images/1.jpg"/>
+    <ParallaxImageHeight title="we will stand tall" left="0" right="342px" src="/images/2.jpg"/>
+    <ParallaxImageHeight title="feel the earth move" src="/images/3.jpg"/>
+    <ParallaxImage title="where worlds collide" left="0" right="342px" src="/images/4.jpg"/>
+    <Contact />
   </div>
 </template>
 
 <script>
 import HelloThere from '../components/HelloThere.vue'
-import ParallaxImage1 from '../components/ParallaxImage1.vue'
+import ParallaxImage from '../components/ParallaxImage.vue'
+import ParallaxImageHeight  from '../components/ParallaxImageHeight.vue'
+import Contact from '../components/Contact.vue'
 export default {
   name:'MainContent',
   components: {
     HelloThere,
-    ParallaxImage1
+    ParallaxImage,
+    ParallaxImageHeight,
+    Contact
     }
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+@import "~@theme/styles/bootstrap/bootstrap";
 </style>

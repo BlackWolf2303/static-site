@@ -15,7 +15,7 @@
       </a>
 
       <!-- Navigation -->
-      <nav class="navigation">
+      <nav  class="navigation">
         <ul>
           <li class="has-mega-menu">
             <a href="#">Home</a>
@@ -90,54 +90,54 @@ export default {};
     }
   }
 }
-a,
-a:focus,
-a:hover {
-  color: #000;
-  outline: 0;
-  text-decoration: none;
-}
-.mob-menu {
-  display: none;
-  width: 26px;
-  position: relative;
-  z-index: 99999;
-}
-.navigation {
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  height: 100%;
-  @media (min-width: 1025px) {
-    display: block !important;
+header {
+  a,
+  a:focus,
+  a:hover {
+    color: #000;
+    outline: 0;
+    text-decoration: none;
   }
-  li.has-mega-menu {
-    position: inherit;
+  .mob-menu {
+    display: none;
+    width: 26px;
+    position: relative;
+    z-index: 99999;
   }
-  ul {
-    list-style: none;
-    margin-bottom: 0;
-    li {
-      display: block;
-      float: left;
-      a {
+  .navigation {
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    height: 100%;
+    @media (min-width: 1025px) {
+      display: block !important;
+    }
+    li.has-mega-menu {
+      position: inherit;
+    }
+    ul {
+      list-style: none;
+      margin-bottom: 0;
+      li {
         display: block;
-        box-sizing: border-box;
-        color: #fff;
-        position: relative;
-        padding: 1rem 1.2rem;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        letter-spacing: .1em;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        font-weight: 100;
-        line-height: 44px;
-        
+        float: left;
+        a {
+          display: block;
+          box-sizing: border-box;
+          color: #fff;
+          position: relative;
+          padding: 1rem 1.2rem;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          font-weight: 100;
+          line-height: 44px;
+        }
       }
     }
-  }
-  >ul>li>a {
-
+    > ul > li > a {
+    }
   }
 }
 </style>

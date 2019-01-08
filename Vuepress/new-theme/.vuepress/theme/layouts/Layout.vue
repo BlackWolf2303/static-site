@@ -15,12 +15,19 @@
 import Header from "../components/Header.vue";
 import HeaderBanner from "../components/HeaderBanner.vue";
 import Footer from "../components/Footer.vue";
+
+
 export default {
-  components: { Footer, Header, HeaderBanner }
+  components: { Footer, Header, HeaderBanner },
+  methods: {
+    jQuery(function($))
+  }
 };
+
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Gidugu|Playfair+Display');
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +62,9 @@ body {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
-  background-image: url("/images/pattern.jpg");
+  background-color: #f3f6f7;
+  background-size: 57px auto;
+  background-position: center center;
+  background-image: linear-gradient(to right,transparent 29px,rgba(0,0,0,.08) 29px,transparent 30px);
 }
 </style>

@@ -7,7 +7,7 @@
           class="bold animated"
         >We're just two lost Souls swimming in a Fish Bowl &amp; Winning Design Awards</h2>
         <p
-          class="small serif mt-5 animated"
+          class="small serif mt-5 animated description"
         >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, et, praesentium?
           <br>Odit perferendis error natus cum, laudantium ea!
         </p>
@@ -38,5 +38,13 @@ export default {
 }
 .bold {
   font-weight: 700;
+}
+.hello-there .description {
+  font-size: 1.19rem;
+    color: #909090;
+
+}
+.serif {
+    font-family: 'Playfair Display',serif;
 }
 </style>
