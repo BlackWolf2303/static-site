@@ -5,7 +5,7 @@
       <div class="item-media" :style="changeImagePosition">
         <img v-parallax="-0.2" :src="src" :alt="alt">
       </div>
-      <figcaption class="visible" :style="changeFigcaptionPosition">
+      <figcaption class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
         <div class="item-caption-inner">
           <p class="text-links">
             <a href="#">Design</a>
@@ -23,18 +23,25 @@
 <script>
 import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 Vue.use(VueParallaxJs);
+Vue.use(AOS);
 
 export default {
   name: "ParallaxImageHeight",
-  props: ["title", "src", "alt", "left", "right"],
-  // data: {
-  //   dimension: {
-  //     width: this.width,
-  //     height:this.height
-  //   }
-  // },
+  props: ["title", "src", "alt", "left", "right","aosValue"],
+   created(){
+    AOS.init();
+    console.log(this.aosValue);
+    console.log(this.title);
+  },
+  data () {
+  return {
+    AosValue: this.aosValue,
+  }
+  },
   computed: {
     changeFigcaptionPosition() {
       return "left:" + this.left;

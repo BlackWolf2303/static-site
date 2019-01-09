@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "index.js",
   "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.0.0-alpha.0",
     "autoprefixer": "^9.4.2",
     "bootstrap": "^4.2.1",
     "element-ui": "^2.4.11",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@vuepress/plugin-blog": "^1.0.0-alpha.0",
     "@vuepress/plugin-pagination": "^1.0.0-alpha.0",
+    "aos": "^3.0.0-beta.6",
     "jquery": "^3.3.1"
   }
 }

@@ -2,7 +2,7 @@
   <div id="contact" class="container py-sm-12 py-8">
     <div class="row align-items-center p-5 dot-border">
       <div class="col-md">
-        <h2 class="m-0 animated">Let's work together</h2>
+        <h2 class="m-0 animated" style="animation: fade-in-bottom 800ms ease 200ms 1 normal both running;opacity: 1;">Let's work together</h2>
       </div>
       <div class="col-auto">
         <a href="#" class="button style-7 mb-0 animated">Contact Us</a>
@@ -17,8 +17,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~@theme/styles/bootstrap/bootstrap";
+<style lang="scss" >
+
 #contact {
   box-sizing: border-box;
   padding-top: 150px;

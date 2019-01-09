@@ -1,4 +1,5 @@
-! function(e) {
+
+export default func = function(e) {
     "use strict";
     e(window).on("load", function() {
         var o = e("body");

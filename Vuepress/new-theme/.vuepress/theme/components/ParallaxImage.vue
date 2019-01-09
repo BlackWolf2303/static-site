@@ -5,7 +5,7 @@
       <div class="item-media" :style="changeImagePosition">
         <img v-parallax="-0.2" :src="src" :alt="alt">
       </div>
-      <figcaption id="figcaption" class="visible" :style="changeFigcaptionPosition">
+      <figcaption id="figcaption" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
         <div class="item-caption-inner">
           <p class="text-links">
             <a href="#">Design</a>
@@ -23,51 +23,68 @@
 <script>
 import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 Vue.use(VueParallaxJs);
+Vue.use(AOS);
 
 export default {
   name: "ParallaxImage",
-  props: ["title", "src", "alt", "left", "right"],
-  // data: {
-  //   dimension: {
-  //     width: this.width,
-  //     height:this.height
-  //   }
-  // },
-  method: {
-    handleScroll(event) {
-      let figcaption = document.getElementById("figcaption");
-      let setFigcaption = figcaption.offsetTop;
-      if (setFigcaption <= 800) {
-        console.log("okay!");
-      }
-    },
-    created() {
-      window.addEventListener("scroll", this.handleScroll);
-    },
-    destroyed() {
-      window.removeEventListener("scroll", this.handleScroll);
-    }
+  props: ["title", "src", "alt", "left", "right","aosValue"],
+ 
+  created(){
+    AOS.init();
+    console.log(this.aosValue);
+    console.log(this.title);
   },
+  data () {
+  return {
+    AosValue: this.aosValue,
+  }
+  },
+// },
+// methods: {
+//   handleScroll () {
+//     this.scrolled = window.scrollY > 0;
+//     if(window.pageXOffset)
+    
+//   }
+// },
+// created () {
+//   window.addEventListener('scroll', this.handleScroll);
+// },
+// destroyed () {
+//   window.removeEventListener('scroll', this.handleScroll);
+// },
+
   computed: {
     changeFigcaptionPosition() {
       return "left:" + this.left;
+      
+      
     },
     changeImagePosition() {
       return "margin-left:" + this.right;
-    }
+    },
+  
+    
   },
-  mounted: function() {
+  mounted: 
+
+    function() { 
     setTimeout(function() {
       window.scrollTo(0, 5);
       window.scrollTo(0, 0);
     }, 100);
-  }
+  },
+  
 };
+
 </script>
 
 <style lang="scss">
+
 #parallax-image {
   .parallax-folio-item {
     // height: 450px;
@@ -106,6 +123,9 @@ export default {
     left: 60%;
     display: block;
     background-color: #fff;
+    @media (max-width: 1024px){
+
+    }
   }
   .visible {
     visibility: visible !important;

@@ -12,7 +12,7 @@
         </p>
       </div>
     </div>
-    <img v-parallax="0.5" :src="src" :alt="alt">
+    <img v-parallax="0.2" :src="src" :alt="alt" class="img-fluid">
   </div>
   </div>
 </template>
@@ -20,7 +20,6 @@
 <script>
 import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
-
 
 Vue.use(VueParallaxJs);
 
@@ -37,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" >
-@import "~@theme/styles/bootstrap/bootstrap";
+
 #head-banner {
   .head-banner {
     height: 90vh;
@@ -64,21 +63,29 @@ export default {
     position: absolute;
     display: block;
     top: 70%;
-    left: 40%;
+    left: 50%;
+    transform: translate(-50%);
     a {
       color: white;
       font-weight: 500;
-      :hover {
-        text-decoration: none;
+      &:hover {
+                text-decoration: none;
+        color: grey;
       }
-    }
-
+    }  
     p {
       text-align: center;
     }
   }
+  .head-banner-text.caption-inner.a :hover {
+    text-decoration: none;
+  }
   h3 {
     font-size: 3.7897rem;
+        @media (max-width: 1024px){
+      font-size: 3.5rem;
+      
+    }
   }
   .small {
     font-size: 1.19rem;
@@ -88,5 +95,6 @@ export default {
   .serif {
     font-family: "Playfair Display", serif;
   }
+
 }
 </style>
