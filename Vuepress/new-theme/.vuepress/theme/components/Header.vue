@@ -1,47 +1,49 @@
 <template>
-  <header id="header">
-    <div class="header">
-          <!-- Logo -->
+  <header id="header" >
+    <div class="header"  >
+      <!-- Logo -->
       <a href="#" class="logo">
         <img src="/images/logo-light.png" class="logo-light" alt="logo">
         <img src="/images/logo-dark.png" class="logo-dark" alt="logo">
       </a>
-    <input class="menu-btn" type="checkbox" id="menu-btn">
-    <label class="menu-icon" for="menu-btn">
-      <span class="navicon"></span>
-    </label>
-    <ul class="menu">
-        <li>
-        <a href="#home">Home</a>
-      </li>
-      <li>
-        <a href="#about">About</a>
-      </li>
-      <li>
-        <a href="#portfolio">Portfolio</a>
-      </li>
-      <li>
-        <a href="#blog">Blog</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-    </ul>
+      <input class="menu-btn" type="checkbox" id="menu-btn">
+      <label class="menu-icon" for="menu-btn">
+        <span class="navicon"></span>
+      </label>
+      <ul class="menu">
+        <li class="link-hover" v-for="(value,index) in menu" :key="index">
+          <a href="#">{{value}}</a>
+        </li>
+      </ul>
     </div>
   </header>
 </template>
 
 <script>
+
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      menu: {
+        Home: "home",
+        About: "about",
+        Portfolio: "portfolio",
+        Blog: "blog",
+        Contact: "contact"
+      }
+    };
+  }
 };
 </script>
 
 
 <style lang="scss">
 #header {
+
   a {
     color: #fff;
+
   }
 
   /* header */
@@ -52,6 +54,7 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 3;
+
   }
 
   .header ul {
@@ -64,36 +67,51 @@ export default {
 
   .header li a {
     display: block;
+    height: 64px;
     padding: 20px 20px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: 40px;
   }
 
   /*link hover*/
-  
-  // a::before {
-  // position: absolute;
-  // content: '';
-  // top:0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
-  // background-color: #fff;
-  // transform: scaleX(0);
-  // transform-origin:right;
-  // transition: transform 0.25s;
-  // z-index:-1;
-  
-  // }
-  // a:hover::before {
-  //   transform: scaleX(1);
-  // transform-origin:left;
-  // }
+  .link-hover {
+    position: relative;
+  }
+  .link-hover::before {
+    position: absolute;
+    content: "";
+    bottom: 20px;
+    left: 0;
+    width: 90%;
+    height: 3%;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s;
+  }
+  .link-hover:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 
   .header li a:hover,
   .header .menu-btn:hover {
-    background-color: #999;
+    // background-color: #999;
+    // position: absolute;
+    // content: '';
+    // top:0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
+    // background-color: #fff;
+    // transform: scaleX(0);
+    // transform-origin:right;
+    // transition: transform 0.25s;
+    // z-index:-1;
   }
 
   .header .logo {
@@ -158,7 +176,7 @@ export default {
   }
 
   .header .menu-btn:checked ~ .menu {
-    max-height: 240px;
+    max-height: 320px;
   }
 
   .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -180,12 +198,15 @@ export default {
 
   /* 48em = 768px */
 
-  @media (min-width: 48em) {
+  @media (min-width: 1025px) {
     .header li {
+ 
       float: left;
+      
     }
     .header li a {
-      padding: 20px 30px;
+      padding: 10px 12px;
+      vertical-align: middle;
     }
     .header .menu {
       clear: none;
@@ -196,5 +217,10 @@ export default {
       display: none;
     }
   }
+  .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 }
 </style>

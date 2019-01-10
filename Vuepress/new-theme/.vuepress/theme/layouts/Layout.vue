@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header/>
+ 
     <HeaderBanner
       :title="$page.frontmatter.title"
       :src="$page.frontmatter.banner"
@@ -12,19 +13,18 @@
 </template>
 
 <script>
+
 import Header from "../components/Header.vue";
 import HeaderBanner from "../components/HeaderBanner.vue";
 import Footer from "../components/Footer.vue";
 
 export default {
   components: { Footer, Header, HeaderBanner },
-
 };
-
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Gidugu|Playfair+Display');
+@import url("https://fonts.googleapis.com/css?family=Gidugu|Playfair+Display");
 @import "~@theme/styles/bootstrap/bootstrap";
 * {
   margin: 0;
@@ -64,6 +64,11 @@ body {
   background-color: #f3f6f7;
   background-size: 57px auto;
   background-position: center center;
-  background-image: linear-gradient(to right,transparent 29px,rgba(0,0,0,.08) 29px,transparent 30px);
+  background-image: linear-gradient(
+    to right,
+    transparent 29px,
+    rgba(0, 0, 0, 0.08) 29px,
+    transparent 30px
+  );
 }
 </style>

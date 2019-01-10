@@ -5,7 +5,7 @@
       <div class="item-media" :style="changeImagePosition">
         <img v-parallax="-0.2" :src="src" :alt="alt">
       </div>
-      <figcaption class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
+      <figcaption v-if="$mq==='desktop'|$mq==='laptop'" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
         <div class="item-caption-inner">
           <p class="text-links">
             <a href="#">Design</a>
@@ -25,17 +25,24 @@ import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import VueMq from 'vue-mq';
 
 Vue.use(VueParallaxJs);
 Vue.use(AOS);
+Vue.use(VueMq, {
+  breakpoints: {
+    mobile: 450,
+    tablet: 768,
+    laptop: 1024,
+    desktop: Infinity,
+  }
+})
 
 export default {
   name: "ParallaxImageHeight",
   props: ["title", "src", "alt", "left", "right","aosValue"],
    created(){
     AOS.init();
-    console.log(this.aosValue);
-    console.log(this.title);
   },
   data () {
   return {
@@ -69,14 +76,18 @@ export default {
     position: relative;
     overflow: hidden;
     width: 100%;
+      .item-media {
+      position: relative;
+      width: 70%;
+      @media (max-width: 768px) {
+      margin: auto;
+      }
+    }
   }
   figure {
     margin: 0;
   }
-  .parallax-folio-item .item-media {
-    position: relative;
-    width: 70%;
-  }
+
   .item-media {
     width: 570px;
     height: 741px;

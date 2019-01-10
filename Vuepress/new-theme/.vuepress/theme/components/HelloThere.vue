@@ -35,6 +35,12 @@ export default {
     color: rgb(34, 34, 34);
     letter-spacing: 0.05em;
   }
+  @media (max-width: 1024px){
+.text-lg-center {
+  text-align: center;
+}
+  }
+  
 }
 .bold {
   font-weight: 700;

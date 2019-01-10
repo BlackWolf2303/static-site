@@ -62,9 +62,28 @@ export default {
   .caption-inner {
     position: absolute;
     display: block;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%);
+    top: 80%;
+    left: 38%;
+    transform: translateX(-50%);
+    transform: translateY(-30%);
+    @media (max-width: 1024px){
+    top: 60%;
+    left: 30%;
+    transform: translateX(-50%);
+    transform: translateY(-30%);
+    }
+    @media (max-width: 768px){
+      top: 50%;
+    left: 25%;
+    transform: translateX(-50%);
+    transform: translateY(-30%);
+    }
+    @media (max-width: 425px){
+    top:30%;
+    left: 25%;
+    transform: translateX(-50%);
+    transform: translateY(-30%);
+    }
     a {
       color: white;
       font-weight: 500;
@@ -83,8 +102,7 @@ export default {
   h3 {
     font-size: 3.7897rem;
         @media (max-width: 1024px){
-      font-size: 3.5rem;
-      
+      font-size: 3.5rem;     
     }
   }
   .small {

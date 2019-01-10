@@ -39,7 +39,7 @@ export default {
     border-radius: 0;
     letter-spacing: 0.04em;
     cursor: pointer;
-    z-index: 1;
+    z-index: 2;
     box-sizing: border-box;
     outline: 0 !important;
     transition: all 0.2s ease;
@@ -69,8 +69,7 @@ export default {
   transform: scaleX(0);
   transform-origin:right;
   transition: transform 0.25s;
-  z-index:-1;
-  
+  z-index: -1;
   }
   a:hover::before {
     transform: scaleX(1);
@@ -84,6 +83,10 @@ export default {
 
   h2 {
     font-size: 5.0517rem;
+    @media (max-width: 768px){
+    margin-bottom: 30px !important;
+    font-size: 3rem;
+  }   
   }
 }
 </style>

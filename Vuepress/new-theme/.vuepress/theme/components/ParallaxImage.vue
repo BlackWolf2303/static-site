@@ -1,11 +1,11 @@
 <template>
-  <div id="parallax-image" class="container px-0">
+  <div id="parallax-image" class="container px-0 ">
     <!-- Portfolio Item -->
     <figure class="parallax-folio-item">
       <div class="item-media" :style="changeImagePosition">
         <img v-parallax="-0.2" :src="src" :alt="alt">
       </div>
-      <figcaption id="figcaption" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
+      <figcaption v-if="$mq==='desktop'|$mq==='laptop'" id="figcaption" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
         <div class="item-caption-inner">
           <p class="text-links">
             <a href="#">Design</a>
@@ -25,18 +25,25 @@ import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import VueMq from 'vue-mq';
 
 Vue.use(VueParallaxJs);
 Vue.use(AOS);
+Vue.use(VueMq, {
+  breakpoints: {
+    mobile: 450,
+    tablet: 768,
+    laptop: 1024,
+    desktop: Infinity,
+  }
+})
 
 export default {
   name: "ParallaxImage",
   props: ["title", "src", "alt", "left", "right","aosValue"],
- 
+
   created(){
     AOS.init();
-    console.log(this.aosValue);
-    console.log(this.title);
   },
   data () {
   return {
@@ -99,14 +106,17 @@ export default {
     letter-spacing: 0.05em;
     line-height: 1.5;
     color: #222;
+      .item-media {
+      position: relative;
+      width: 70%;
+      @media (max-width: 768px) {
+      margin: auto;
+      }
+    }
   }
   figure {
     margin: 0;
     display: block;
-  }
-  .parallax-folio-item .item-media {
-    position: relative;
-    width: 70%;
   }
   .item-media {
     width: 800px;
@@ -246,5 +256,6 @@ export default {
   .button.style-3:hover {
     border-color: #000;
   }
+
 }
 </style>
