@@ -1,162 +1,200 @@
 <template>
-  <div class="rounded shadow-lg m-10 p-5 bg-yellow-darker">
-    <header id="header">
-
-      <!-- Logo -->
+  <header id="header">
+    <div class="header">
+          <!-- Logo -->
       <a href="#" class="logo">
         <img src="/images/logo-light.png" class="logo-light" alt="logo">
         <img src="/images/logo-dark.png" class="logo-dark" alt="logo">
       </a>
-
-      <!-- Mobile Menu Icon -->
-      <a href="#" class="mob-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-
-      <!-- Navigation -->
-      <nav  class="navigation">
-
-        <ul>
-          <li class="has-mega-menu">
-            <a href="#">Home</a>
-            <div class="mega-menu">
-              <div class="col">
-                <ul></ul>
-              </div>
-              <div class="col">
-                <ul></ul>
-              </div>
-              <div class="col">
-                <ul></ul>
-              </div>
-              <div class="col">
-                <ul></ul>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <a href="#">About</a>
-          </li>
-
-          <li class="has-mega-menu">
-            <a href="#">Portfolio</a>
-          </li>
-
-          <li>
-            <a href="#">Blog</a>
-          </li>
-
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-
-      <!-- /Navigation -->
-      </nav>
-    </header>
-  </div>
+    <input class="menu-btn" type="checkbox" id="menu-btn">
+    <label class="menu-icon" for="menu-btn">
+      <span class="navicon"></span>
+    </label>
+    <ul class="menu">
+        <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a href="#blog">Blog</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+    </div>
+  </header>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Header"
+};
 </script>
 
+
 <style lang="scss">
-
 #header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 65px;
-  padding: 0 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 1001;
-  .logo {
+  a {
     color: #fff;
-    text-decoration: none;
-    img {
-      display: inline-block;
-      max-height: 30px;
-    }
   }
 
-}
-header {
-  a,
-  a:focus,
-  a:hover {
-    color: #000;
-    outline: 0;
-    text-decoration: none;
-  }
-  .mob-menu {
-    display: none;
-    width: 26px;
-    position: relative;
-    z-index: 99999;
-  }
-  .navigation {
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
-    height: 100%;
-    @media (min-width: 1025px) {
-      display: block !important;
-    }
-    li.has-mega-menu {
-      position: inherit;
-    }
-    ul {
-      list-style: none;
-      margin-bottom: 0;
-      li {
-        display: block;
-        float: left;
-        a {
-          display: block;
-          box-sizing: border-box;
-          color: #fff;
-          position: relative;
-          padding: 1rem 1.2rem;
-          font-size: 1.2rem;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          font-weight: 100;
-          line-height: 44px;
-        }
-      }
-    }
-    > ul > li > a {
-    }
-  @media (max-width: 1024px){
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
+  /* header */
+
+  .header {
+    background-color: #000;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+    position: fixed;
     width: 100%;
-    background-color: #111;
-    height: auto;
-    max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    z-index: 3;
   }
 
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  /*link hover*/
+  
+  // a::before {
+  // position: absolute;
+  // content: '';
+  // top:0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // background-color: #fff;
+  // transform: scaleX(0);
+  // transform-origin:right;
+  // transition: transform 0.25s;
+  // z-index:-1;
+  
+  // }
+  // a:hover::before {
+  //   transform: scaleX(1);
+  // transform-origin:left;
+  // }
+
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #999;
+  }
+
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 11px 20px;
+    text-decoration: none;
+  }
+
+  /* menu */
+
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+
+  /* menu icon */
+
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+  }
+
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+
+  /* menu btn */
+
+  .header .menu-btn {
+    display: none;
+  }
+
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+
+  /* 48em = 768px */
+
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
   }
 }
 </style>
