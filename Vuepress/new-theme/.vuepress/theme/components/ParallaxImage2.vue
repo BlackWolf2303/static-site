@@ -1,35 +1,115 @@
 <template>
-  <figcaption id="figcaption" class="visible" :data-aos="figAosValue">
-        <div class="item-caption-inner">
-          <p class="text-links">
-            <a href="#">Design</a>
-            <a href="#">Art</a>
-          </p>
-          <h3 class="bold uppercase">{{figTitle}}</h3>
-          <a href="#" class="button style-3 border-2">View Project</a>
-        </div>
-      </figcaption>
+  <div id="parallax-image" class="container px-0 ">
+    <!-- Portfolio Item -->
+    <figure class="parallax-folio-item">
+      <Parallax :speed-factor="0.3" :fixed="false" >
+        <img :src="src" :alt="alt">
+      </Parallax >
+          <FigCaption :figTitle="figTitle" :figAosValue="figAosValue"/>
+    </figure>
+    <!-- /Portfolio Item -->
+  </div>
 </template>
 
 <script>
+import Vue from "vue";
+import AOS from 'aos';
+import "aos/dist/aos.css";
+import Parallax from 'vue-parallaxy';
+
+
+Vue.use(AOS);
+
+import FigCaption from '../components/FigCaption.vue';
 
 export default {
-name: 'FigCaption',
-props: ["figTitle","figAosValue"]
-}
+  name: "ParallaxImage",
+  components: {
+    FigCaption,
+    Parallax
+    },
+  props: ["title", "src", "alt", "left", "right","aosValue"],
+
+  created(){
+    AOS.init();
+  },
+  data () {
+  return {
+    figAosValue: this.aosValue,
+    figTitle: this.title,
+  }
+  },
+// },
+// methods: {
+//   handleScroll () {
+//     this.scrolled = window.scrollY > 0;
+//     if(window.pageXOffset)
+    
+//   }
+// },
+// created () {
+//   window.addEventListener('scroll', this.handleScroll);
+// },
+// destroyed () {
+//   window.removeEventListener('scroll', this.handleScroll);
+// },
+
+  computed: {
+    changeFigcaptionPosition() {
+      return "left:" + this.left;
+      
+      
+    },
+    changeImagePosition() {
+      return "margin-left:" + this.right;
+    },
+  
+    
+  },
+  mounted: 
+
+    function() { 
+    setTimeout(function() {
+      window.scrollTo(0, 5);
+      window.scrollTo(0, 0);
+    }, 100);
+  },
+  
+};
+
 </script>
 
 <style lang="scss">
 
 #parallax-image {
-
+  .parallax-folio-item {
+    // height: 450px;
+    max-width: 1140px;
+    margin: 0 auto;
+    margin-bottom: 150px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    color: #222;
+      .item-media {
+      position: relative;
+      width: 70%;
+      @media (max-width: 768px) {
+      margin: auto;
+      }
+    }
+  }
+  .Masthead {
+    width: 800px;
+    min-height: 450px;
+  }
   figure {
     margin: 0;
     display: block;
-  }
-  .parallax-folio-item .item-media {
-    position: relative;
-    width: 70%;
   }
   .item-media {
     width: 800px;
@@ -169,5 +249,6 @@ props: ["figTitle","figAosValue"]
   .button.style-3:hover {
     border-color: #000;
   }
+
 }
 </style>

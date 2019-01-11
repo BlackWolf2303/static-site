@@ -9,7 +9,7 @@
     <ParallaxImageHeight title="feel the earth move" v-if="$mq === 'desktop'" aosValue='fade-left' left="570px" right="114px" src="/images/3.jpg"/>
     <ParallaxImageHeight title="feel the earth move" v-if="$mq !== 'desktop'" aosValue='fade-left' left="475px" right="100px" src="/images/3.jpg"/>
 
-    <ParallaxImage title="where worlds collide" aosValue='fade-right' left="0" right="342px" src="/images/4.jpg"/>
+    <ParallaxImage title="where worlds collide" aosValue='fade-right' src="/images/4.jpg"/>
     <Contact />
   </div>
 </template>
