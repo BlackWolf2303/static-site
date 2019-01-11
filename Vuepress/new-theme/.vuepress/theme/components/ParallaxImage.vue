@@ -3,9 +3,9 @@
     <!-- Portfolio Item -->
     <figure class="parallax-folio-item">
       <div class="item-media" :style="changeImagePosition">
-        <img v-parallax="-0.2" :src="src" :alt="alt">
+        <img v-parallax="-0.1" :src="src" :alt="alt">
       </div>
-      <figcaption v-if="$mq==='desktop'|$mq==='laptop'" id="figcaption" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
+      <figcaption  id="figcaption" class="visible" :data-aos="AosValue" :style="changeFigcaptionPosition">
         <div class="item-caption-inner">
           <p class="text-links">
             <a href="#">Design</a>
@@ -25,18 +25,9 @@ import Vue from "vue";
 import VueParallaxJs from "vue-parallax-js";
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import VueMq from 'vue-mq';
 
 Vue.use(VueParallaxJs);
 Vue.use(AOS);
-Vue.use(VueMq, {
-  breakpoints: {
-    mobile: 450,
-    tablet: 768,
-    laptop: 1024,
-    desktop: Infinity,
-  }
-})
 
 export default {
   name: "ParallaxImage",

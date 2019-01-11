@@ -75,43 +75,40 @@ export default {
     text-align: center;
     font-weight: 400;
     line-height: 40px;
+    vertical-align: middle;
+    @media (max-width: 1024px){
+      line-height: 20px;
+    }
   }
 
   /*link hover*/
   .link-hover {
     position: relative;
   }
-  .link-hover::before {
-    position: absolute;
-    content: "";
-    bottom: 20px;
-    left: 0;
-    width: 90%;
-    height: 3%;
-    background-color: #fff;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.25s;
-  }
-  .link-hover:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+  @media (min-width: 1025px){
+    .link-hover::before {
+      position: absolute;
+      content: "";
+      bottom: 20px;
+      left: 0;
+      width: 90%;
+      height: 3%;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s;
+    }
+    .link-hover:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
   }
 
-  .header li a:hover,
-  .header .menu-btn:hover {
-    // background-color: #999;
-    // position: absolute;
-    // content: '';
-    // top:0;
-    // left: 0;
-    // width: 100%;
-    // height: 100%;
-    // background-color: #fff;
-    // transform: scaleX(0);
-    // transform-origin:right;
-    // transition: transform 0.25s;
-    // z-index:-1;
+  @media (max-width: 1024px){
+    .header li a:hover,
+    .header .menu-btn:hover {
+      background-color: #999;
+    }
   }
 
   .header .logo {

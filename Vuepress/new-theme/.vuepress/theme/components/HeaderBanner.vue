@@ -39,11 +39,12 @@ export default {
 
 #head-banner {
   .head-banner {
-    height: 90vh;
+    max-height: 100vh;
     overflow: hidden;
     img {
       position: relative;
       z-index: 1;
+
     }
     .head-banner-text {
       position: absolute;
@@ -67,19 +68,19 @@ export default {
     transform: translateX(-50%);
     transform: translateY(-30%);
     @media (max-width: 1024px){
-    top: 60%;
+    top: 70%;
     left: 30%;
     transform: translateX(-50%);
     transform: translateY(-30%);
     }
     @media (max-width: 768px){
-      top: 50%;
+      top: 70%;
     left: 25%;
     transform: translateX(-50%);
     transform: translateY(-30%);
     }
     @media (max-width: 425px){
-    top:30%;
+    top:60%;
     left: 25%;
     transform: translateX(-50%);
     transform: translateY(-30%);

@@ -34,11 +34,14 @@ export default {
     font-size: 4.5rem;
     color: rgb(34, 34, 34);
     letter-spacing: 0.05em;
+      @media (max-width: 1024px){
+        font-size: 4rem;
+      }
   }
   @media (max-width: 1024px){
-.text-lg-center {
-  text-align: center;
-}
+    .text-lg-center {
+      text-align: center;
+    }
   }
   
 }
