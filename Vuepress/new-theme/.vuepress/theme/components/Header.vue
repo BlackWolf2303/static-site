@@ -1,6 +1,6 @@
 <template>
-  <header id="header" >
-    <div class="header"  >
+  <header id="header" class="sticky-top">
+    <div  class="header">
       <!-- Logo -->
       <a href="#" class="logo">
         <img src="/images/logo-light.png" class="logo-light" alt="logo">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 
 export default {
   name: "Header",
@@ -31,31 +32,50 @@ export default {
         Portfolio: "portfolio",
         Blog: "blog",
         Contact: "contact"
-      }
+      },
+      sticky: true,
     };
-  }
+  },
+  methods: {
+    handleScroll () {
+      var innerTheEndOfPageA = document.getElementById('footer').offsetTop - window.pageYOffset;
+      var innerTheEndOfPageB = document.getElementById('footer').offsetTop - window.scrollY;
+      
+      if(window.scrollY > 100){
+        document.getElementById('header').classList.remove("sticky-top");
+        document.getElementById('footer').classList.remove("sticky-footer"); 
+      }else if(innerTheEndOfPageB-innerTheEndOfPageA ==0){
+        document.getElementById('header').classList.add("sticky-top");
+        document.getElementById('footer').classList.add("sticky-footer"); 
+      }
+      else{
+        document.getElementById('header').classList.add("sticky-top");
+        document.getElementById('footer').classList.add("sticky-footer");
+      }      
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  
 };
 </script>
 
 
 <style lang="scss">
 #header {
-
-  a {
-    color: #fff;
-
-  }
-
-  /* header */
-
-  .header {
+    display: inline-block;
     background-color: #000;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
-    position: fixed;
     width: 100%;
     z-index: 3;
-
+  a {
+    color: #fff;
   }
+  /* header */
 
   .header ul {
     margin: 0;
@@ -214,10 +234,11 @@ export default {
       display: none;
     }
   }
-  .sticky {
-  position: fixed;
+
+}
+  .sticky-top {
+  position: fixed !important;
   top: 0;
-  width: 100%;
 }
-}
+
 </style>

@@ -1,19 +1,19 @@
 <template>
   <div id="head-banner">
-  <div  class="head-banner" v-if="src" style="position:relative">
-    <div class="head-banner-text">
-      <div class="caption-inner">
-        <h3>
-          <a href="#">New Sol, New Hope</a>
-        </h3>
-        <p class="text-links small serif">
-          <a href="#">Design</a>
-          <a href="#">Art</a>
-        </p>
+    <div  class="head-banner" v-if="src" style="position:relative">
+      <div class="head-banner-text">
+        <div class="caption-inner">
+          <h3>
+            <a href="#">New Sol, New Hope</a>
+          </h3>
+          <p class="text-links small serif">
+            <a href="#">Design</a>
+            <a href="#">Art</a>
+          </p>
+        </div>
       </div>
+      <img v-parallax="0.2" :src="src" :alt="alt" class="img-fluid">
     </div>
-    <img v-parallax="0.2" :src="src" :alt="alt" class="img-fluid">
-  </div>
   </div>
 </template>
 
