@@ -1,18 +1,22 @@
 <template>
   <div>
     <Header/>
- 
+    <smooth-scrollbar>
     <HeaderBanner
       :title="$page.frontmatter.title"
       :src="$page.frontmatter.banner"
       :alt="$page.frontmatter.banner_title"
     />
     <Content id="main-content"/>
+    </smooth-scrollbar>
     <Footer/>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
+import SmoothScrollbar from 'vue-smooth-scrollbar';
+Vue.use(SmoothScrollbar);
 
 import Header from "../components/Header.vue";
 import HeaderBanner from "../components/HeaderBanner.vue";

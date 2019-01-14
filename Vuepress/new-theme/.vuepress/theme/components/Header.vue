@@ -38,20 +38,27 @@ export default {
   },
   methods: {
     handleScroll () {
-      var innerTheEndOfPageA = document.getElementById('footer').offsetTop - window.pageYOffset;
-      var innerTheEndOfPageB = document.getElementById('footer').offsetTop - window.scrollY;
+      // var innerTheEndOfPageA = document.getElementById('footer').offsetTop - window.pageYOffset;
+      // var innerTheEndOfPageB = document.getElementById('footer').offsetTop - window.scrollY;
       
-      if(window.scrollY > 100){
-        document.getElementById('header').classList.remove("sticky-top");
-        document.getElementById('footer').classList.remove("sticky-footer"); 
-      }else if(innerTheEndOfPageB-innerTheEndOfPageA ==0){
-        document.getElementById('header').classList.add("sticky-top");
-        document.getElementById('footer').classList.add("sticky-footer"); 
+      // if(window.scrollY > 100){
+      //   document.getElementById('header').classList.remove("sticky-top");
+      //   document.getElementById('footer').classList.remove("sticky-footer"); 
+      // }else if(innerTheEndOfPageB-innerTheEndOfPageA ==0){
+      //   document.getElementById('header').classList.add("sticky-top");
+      //   document.getElementById('footer').classList.add("sticky-footer"); 
+      // }
+      // else{
+      //   document.getElementById('header').classList.add("sticky-top");
+      //   document.getElementById('footer').classList.add("sticky-footer");
+      // }      
+      if ($(window).scrollTop() < 50) {
+          $('#header').addClass('sticky-top');
+          $('#footer').addClass('sticky-footer');
+      } else {
+          $('#header').removeClass('sticky-top');
+          $('#footer').removeClass('sticky-footer');
       }
-      else{
-        document.getElementById('header').classList.add("sticky-top");
-        document.getElementById('footer').classList.add("sticky-footer");
-      }      
     }
   },
   created () {
@@ -239,6 +246,18 @@ export default {
   .sticky-top {
   position: fixed !important;
   top: 0;
+  animation:slide-down 0.5s;
+  opacity:0.9; 
+}
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 
+    100% {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
 }
 
 </style>

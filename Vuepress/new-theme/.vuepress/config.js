@@ -4,7 +4,7 @@ module.exports = {
   },
   title: 'Hello VuePress',
   description: 'Just playing around',
-  head: [
-    ["style", { src: './node_modules/aos/dist/aos.css'}],
-    ]
+//   head: [
+//     ["style", { src: './node_modules/aos/dist/aos.css'}],
+//     ]
 }

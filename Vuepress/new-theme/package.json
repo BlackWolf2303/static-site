@@ -25,6 +25,8 @@
     "@vuepress/plugin-pagination": "^1.0.0-alpha.0",
     "aos": "^3.0.0-beta.6",
     "jquery": "^3.3.1",
-    "vue-mq": "^1.0.1"
+    "smooth-scrollbar": "^8.3.1",
+    "vue-mq": "^1.0.1",
+    "vue-smooth-scrollbar": "^0.1.2"
   }
 }

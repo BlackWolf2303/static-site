@@ -1,23 +1,41 @@
 <template>
-  <footer id="footer" class="sticky-footer" >
+  <footer id="footer" class="sticky-footer">
     <!-- Copyright -->
     <small>© Copyright. AchtungThemes 2018</small>
 
     <!-- Social/Contact Links -->
     <div class="small text-links">
-      <a href="#" class="link-hover" >Facebook /</a>
-      <a href="#" class="link-hover" >Behance /</a>
-      <a href="#" class="link-hover" >Instagram </a>
+      <a href="#" class="link-hover">Facebook /</a>
+      <a href="#" class="link-hover">Behance /</a>
+      <a href="#" class="link-hover">Instagram</a>
     </div>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {
+  // methods: {
+  //         handleScroll () {   
+  //     if ($(window).scrollTop() < 50) {
+  //         $('#header').addClass('sticky-top');
+  //         $('#footer').addClass('sticky-footer');
+  //     } else {
+  //         $('#header').removeClass('sticky-top');
+  //         $('#footer').removeClass('sticky-footer');
+  //     }
+  //   }
+  // },
+  // created () {
+  //   window.addEventListener('scroll', this.handleScroll);
+  // },
+  // destroyed () {
+  //   window.removeEventListener('scroll', this.handleScroll);
+  // },
+  }
+
 </script>
 
 <style lang="scss">
-
 #footer {
   height: 45px;
   padding: 0 50px;
@@ -63,7 +81,7 @@ export default {};
     text-decoration-color: initial;
     color: inherit;
   }
-    .link-hover::before {
+  .link-hover::before {
     position: absolute;
     content: "";
     bottom: -4px;
@@ -79,11 +97,22 @@ export default {};
     transform: scaleX(1);
     transform-origin: left;
   }
-
 }
-  .sticky-footer {
+.sticky-footer {
   position: fixed;
-  bottom:0;
+  bottom: 0;
   width: 100%;
-  }
+  animation:slide-up 0.5s;
+  opacity:0.9; 
+}
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(200%);
+    } 
+    100% {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
+}
 </style>

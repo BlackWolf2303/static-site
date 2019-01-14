@@ -9,13 +9,14 @@
     <ParallaxImageHeight title="feel the earth move" v-if="$mq === 'desktop'" aosValue='fade-left' left="570px" right="114px" src="/images/3.jpg"/>
     <ParallaxImageHeight title="feel the earth move" v-if="$mq !== 'desktop'" aosValue='fade-left' left="475px" right="100px" src="/images/3.jpg"/>
 
-    <ParallaxImage title="where worlds collide" aosValue='fade-right' src="/images/4.jpg"/>
+    <ParallaxImage title="where worlds collide" aosValue='fade-right' left="0px" right="343px" src="/images/4.jpg"/>
     <Contact />
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
+window.$ = window.jQuery = require('jquery');
 import VueMq from 'vue-mq'
 
 Vue.use(VueMq, {
